@@ -19,15 +19,35 @@ function Cube( vertexShaderId, fragmentShaderId ) {
     this.positions = { 
         values : new Float32Array([
            // Add your list vertex positions here
-            0.0, 0.0,0.0, // Vertex 0
+           0.0, 0.0,0.0, // Vertex 0
 		    -0.5, 0.0,0.0, // Vertex 1
 		    -0.5, 0.5,0.0, // Vertex 2
 		    0.0, 0.5,0.0, // Vertex 3
-            
-            0.0, 0.5,0.5, // Vertex 4
-		    0.0, 0.0,0.5, // Vertex 5
-		    -0.5, 0.0,0.5, // Vertex 6
-		    -0.5, 0.5,0.5  // Vertex 7
+            //face2
+            0.0, 0.0,0.0, // Vertex 0-4
+            0.0, 0.5,0.0, // Vertex 3-5
+            0.0, 0.5,0.5, // Vertex 4-6
+            0.0, 0.0,0.5, // Vertex 5-7
+            //face3
+            0.0, 0.5,0.5, // Vertex 4-8
+		    0.0, 0.0,0.5, // Vertex 5-9
+		    -0.5, 0.0,0.5, // Vertex 6-10
+		    -0.5, 0.5,0.5, // Vertex 7-11
+            //face4
+            -0.5, 0.0,0.0, // Vertex 1-12
+            -0.5, 0.5,0.0, // Vertex 2-13
+            -0.5, 0.0,0.5, // Vertex 6-14
+		    -0.5, 0.5,0.5,  // Vertex 7-15
+            //face5
+            0.0, 0.0,0.0, // Vertex 0-16
+		    -0.5, 0.0,0.0, // Vertex 1-17
+            0.0, 0.0,0.5, // Vertex 5-18
+		    -0.5, 0.0,0.5, // Vertex 6-19
+            //face6
+            -0.5, 0.5,0.0, // Vertex 2-20
+		    0.0, 0.5,0.0, // Vertex 3-21
+            0.0, 0.5,0.5, // Vertex 4-22
+            -0.5, 0.5,0.5  // Vertex 7-23
             ]),
         numComponents : 3
     };
@@ -43,12 +63,12 @@ function Cube( vertexShaderId, fragmentShaderId ) {
 	};
     this.indices = {
     values : new Uint16Array([ 
-        0,1,2,2,3,0,//each side
-        0,6,1,5,6,0,//each side
-        0,3,5,4,5,3,//each side
-        3,2,7,3,7,4,//each side
-        4,6,5,6,4,7,//each side
-        7,2,6,1,6,2//each side
+        ,1,2,2,3,0,//each side 1
+        16,19,17,18,19,16,//each side 5
+        4,5,7,6,7,5,//each side 2
+        21,20,23,21,23,22,//each side 6
+        8,10,9,10,8,11,//each side 3
+        15,13,14,12,14,13//each side 4
     ])
     };
     this.indices.count = this.indices.values.length;
